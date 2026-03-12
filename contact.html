@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Riya P K</title>
+    <meta name="description" content="Contact Riya P K" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Preloader.css">
+    <link rel="stylesheet" href="css/Navbar.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <link rel="stylesheet" href="css/Buttons.css">
+    <link rel="stylesheet" href="css/Contact.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar glass-panel">
+        <div class="navbar-container">
+            <a href="index.html" class="brand-logo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                <span class="brand-text-wrapper">
+                    <span class="brand-text">Riya</span><span class="brand-dot">.</span>
+                </span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="contact.html" class="nav-link active" style="color: var(--primary-accent)">Contact</a></li>
+                <li class="mobile-only-btn">
+                    <a href="mailto:riyalulu098@gmail.com" class="btn btn-primary w-100">Let's Talk</a>
+                </li>
+            </ul>
+            <div class="navbar-actions">
+                <a href="mailto:riyalulu098@gmail.com" class="btn btn-primary nav-cta-btn magnetic-btn">Let's Talk</a>
+                <div class="menu-toggle"><i class="ri-menu-line"></i></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Layout -->
+    <main style="min-height: 100vh; padding-top: 100px;">
+        <div class="container pt-5 pb-5">
+            <header class="page-header">
+                <h1>Get in Touch</h1>
+                <p>Have a project in mind? Let's build something together.</p>
+            </header>
+
+            <section class="contact-container">
+                <!-- Left: Info -->
+                <div class="glass-card info-card">
+                    <div class="info-group">
+                        <h4><i class="ri-mail-send-line"></i> Email Me</h4>
+                        <a href="mailto:riyalulu098@gmail.com">
+                            <p>riyalulu098@gmail.com</p>
+                        </a>
+                    </div>
+                    <div class="info-group">
+                        <h4><i class="ri-phone-line"></i> Call Me</h4>
+                        <a href="tel:+916235806079">
+                            <p>+91 6235806079</p>
+                        </a>
+                    </div>
+                    <div class="info-group">
+                        <h4><i class="ri-map-pin-2-line"></i> Location</h4>
+                        <p>Malappuram, Kerala</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/" class="social-btn"><i class="ri-linkedin-fill"></i></a>
+                        <a href="https://wa.me/916235806079" class="social-btn"><i class="ri-whatsapp-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <form id="contactForm" class="glass-card contact-form">
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_template" value="table" />
+
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" name="name" class="form-input" placeholder="John Doe" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" class="form-input" placeholder="john@example.com" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" class="form-input" placeholder="Project Inquiry" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" class="form-input" placeholder="Tell me about your project..."
+                            required></textarea>
+                    </div>
+
+                    <!-- Status Message Container -->
+                    <div id="statusRef" class="status-message-wrapper"
+                        style="height: 0; opacity: 0; overflow: hidden; margin-top: 0;">
+                        <div class="status-alert status-success" role="alert">
+                            <i class="ri-checkbox-circle-fill status-icon"></i>
+                            <div><strong>Message Sent!</strong></div>
+                        </div>
+                    </div>
+
+                    <div id="errorRef" class="status-alert status-error" style="display: none; margin-top: 1.5rem;">
+                        Oops! There was a problem submitting your form.
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary magnetic-btn submit-btn">
+                        Send Message
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="big-footer section-padding pb-0 position-relative overflow-hidden">
+        <div class="container position-relative z-2">
+            <div class="footer-cta-wrapper">
+                <div class="footer-full-width">
+                    <h2 class="footer-cta-text">
+                        <a href="contact.html" class="cta-link">
+                            LET'S WORK <br />
+                            <span class="rolling-text-container">
+                                <span class="rolling-text original text-stroke">TOGETHER</span>
+                                <span class="rolling-text clone">TOGETHER</span>
+                            </span>
+                        </a>
+                    </h2>
+                </div>
+            </div>
+            <div class="footer-content-grid">
+                <div class="footer-brand-info">
+                    <a href="index.html" class="brand-name footer-brand-logo"
+                        style="text-decoration: none; display: inline-flex; position: relative;"
+                        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                        <span class="brand-text-wrapper">Riya.</span>
+                    </a>
+                    <p class="brand-location">Based in Malappuram, Kerala.</p>
+                </div>
+                <a href="mailto:riyalulu098@gmail.com" class="footer-email-btn magnetic-btn">
+                    <span>riyalulu098@gmail.com</span><i class="ri-arrow-right-up-line"></i>
+                </a>
+            </div>
+            <div class="footer-social-section">
+                <h5 class="connect-heading">Connect</h5>
+                <div class="footer-socials">
+                    <a href="https://linkedin.com/" class="social-icon-btn"><i class="ri-linkedin-fill"></i></a>
+                    <a href="https://wa.me/916235806079" class="social-icon-btn"><i class="ri-whatsapp-line"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 Riya P K. All rights reserved.</p>
+            <p class="footer-credit">Designed & Coded by Riya</p>
+        </div>
+        <div class="footer-glow"></div>
+    </footer>
+
+    <!-- GSAP / Lenis Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Custom Main JS -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Page Specific JS -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusRef = document.getElementById('statusRef');
+        const errorRef = document.getElementById('errorRef');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            errorRef.style.display = 'none';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch("https://formsubmit.co/ajax/riyalulu098@gmail.com", {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.status === 200) {
+                    form.reset();
+                    // Animate success message
+                    gsap.fromTo(statusRef,
+                        { height: 0, opacity: 0, marginTop: 0 },
+                        { height: "auto", opacity: 1, marginTop: "1.5rem", duration: 0.5, ease: "power2.out" }
+                    );
+
+                    setTimeout(() => {
+                        gsap.to(statusRef, {
+                            opacity: 0,
+                            duration: 0.5,
+                            onComplete: () => {
+                                statusRef.style.height = 0;
+                                statusRef.style.marginTop = 0;
+                            }
+                        });
+                    }, 3000);
+                } else {
+                    errorRef.style.display = 'block';
+                }
+            } catch (error) {
+                errorRef.style.display = 'block';
+            } finally {
+                submitBtn.textContent = 'Send Message';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>

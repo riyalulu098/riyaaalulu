@@ -1,0 +1,154 @@
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    /* Replaces gy-5 */
+}
+
+/* Hero Text Section */
+.hero-text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Interactive Text (Spelling moving separately) */
+.hero-content h1.interactive-text {
+    font-size: 4.5rem; /* Larger, more premium */
+    font-weight: 800; /* Extra bold */
+    line-height: 1.1;
+    letter-spacing: -0.02em; /* Tighter tracking for large text */
+    color: var(--text-main) !important;
+    cursor: default;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 10;
+    max-width: 500px;
+}
+
+.interactive-text span {
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy spring */
+}
+
+/* Individual Letter Hover */
+.interactive-text span:hover {
+    color: var(--primary-accent);
+    transform: translateY(-10px) scale(1.2) rotate(5deg);
+    text-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.hero-text-section h2 {
+    font-size: 1.1rem;
+    color: var(--primary-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text-section .role {
+    font-size: 1.75rem;
+    font-weight: 300; /* Thin look */
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.hero-text-section .bio {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+}
+
+/* Hero Visual Section */
+.hero-visual-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Profile & Floating Cards Removed logically, keeping base styles for fallback */
+.profile-container {
+    width: 380px;
+    height: 500px;
+    border-radius: 40px; /* Squircle look, no longer fully circular */
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Very thin, clean border */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6); /* Deep, soft shadow */
+    background: #09090b; /* Zinc 950 base */
+}
+
+.profile-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.float-card {
+    display: none !important; /* Fully hiding these as they clutter a minimalist premium layout */
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    /* Reorder: Visual first on Mobile */
+    .hero-visual-section {
+        order: -1;
+    }
+
+    .hero-text-section {
+        align-items: center;
+    }
+
+    .profile-container {
+        width: 300px;
+        height: 400px;
+        margin-bottom: 30px;
+    }
+
+    .float-card {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1.interactive-text {
+        font-size: 3rem;
+        /* Smaller font on mobile */
+    }
+
+    .float-card {
+        display: none !important;
+    }
+
+    .profile-container {
+        width: 100%;
+        max-width: 320px;
+        height: 420px;
+        border-radius: 30px;
+    }
+}

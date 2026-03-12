@@ -1,0 +1,115 @@
+.page-header {
+    text-align: center;
+    padding-top: calc(80px + 60px);
+    /* fallback for var */
+    padding-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.bio-card {
+    padding: 40px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title i {
+    color: var(--primary-accent);
+}
+
+.bio-intro {
+    margin-bottom: 1.5rem;
+}
+
+.contact-meta {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.meta-item i {
+    color: var(--primary-accent);
+}
+
+.education-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.padding-left-small {
+    padding-left: 10px;
+}
+
+.education-list {
+    background: transparent;
+    padding: 0;
+}
+
+.edu-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--text-muted); /* Thinner, softer border */
+    background: rgba(255, 255, 255, 0.03); /* Lighter glass */
+    border-radius: 0 16px 16px 0;
+    transition: 0.3s;
+}
+
+.edu-item:hover {
+    background: rgba(255, 255, 255, 0.05); /* Slight brighten on hover */
+    transform: translateX(10px);
+}
+
+.edu-year {
+    font-weight: 500; /* Less aggressive weight */
+    color: var(--text-muted); /* Silver text for dates */
+    min-width: 120px;
+}
+
+.edu-details h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.edu-details p {
+    font-size: 0.95rem;
+}
+
+.institution-name {
+    color: var(--text-muted); /* Softer than main text */
+}
+
+.institution-location {
+    font-size: 0.85rem !important;
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}

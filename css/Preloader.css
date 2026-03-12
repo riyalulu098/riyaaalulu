@@ -1,0 +1,145 @@
+/* Preloader Container */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0f0f0f;
+    z-index: 9999;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Grid Lines */
+.intro-grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.grid-line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.grid-line.horiz {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 50%;
+    transform: scaleX(0);
+    transform-origin: center;
+}
+
+.grid-line.vert {
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: scaleY(0);
+    transform-origin: center;
+}
+
+/* Geometric Shapes Container */
+.intro-shapes {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-shape {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+}
+
+.intro-shape.circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.intro-shape.rect {
+    width: 120px;
+    height: 60px;
+    border-radius: 4px;
+}
+
+.intro-shape.square {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* Typography - Premium Minimalist */
+.intro-text-container {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-logo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+}
+
+.intro-text {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #ffffff; /* Dark theme adjustment */
+    margin: 0;
+    display: flex;
+    gap: 0;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.intro-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.intro-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-accent, #2563eb);
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .intro-text {
+        font-size: 3rem;
+        letter-spacing: 0.05em;
+    }
+
+    .intro-dot {
+        width: 8px;
+        height: 8px;
+        margin-bottom: 8px;
+    }
+}

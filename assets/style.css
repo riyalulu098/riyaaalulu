@@ -1,0 +1,1616 @@
+/* 
+ * Glassmorphism Portfolio - Core Styles 
+ * Author: Antigravity
+ */
+
+:root {
+  /* Colors */
+  --bg-gradient-start: #f0f4f8;
+  --bg-gradient-end: #d9e2ec;
+
+  /* Glass Tokens - Premium Update */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  /* Increased transparency */
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-highlight: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --glass-blur: 24px;
+  /* Creamier blur */
+
+  /* Text Colors */
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --primary-accent: #2563eb;
+  --secondary-accent: #1e293b;
+
+  /* Spacing */
+  --container-width: 1200px;
+  --header-height: 80px;
+}
+
+/* --- Preloader (Vector Product) --- */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #eef2f5 0%, #e6e9f0 100%);
+  /* Light theme match */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.preloader-svg {
+  width: 150px;
+  height: 150px;
+  overflow: visible;
+}
+
+/* Initially invisible strokes to be drawn by JS */
+.preloader-svg path,
+.preloader-svg rect,
+.preloader-svg circle {
+  vector-effect: non-scaling-stroke;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Setup */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background: linear-gradient(135deg, #eef2f5 0%, #e6e9f0 100%);
+  min-height: 100vh;
+  color: var(--text-main);
+  overflow-x: hidden;
+  /* Prevent horizontal scroll only */
+  position: relative;
+}
+
+/* Background Decoration - Optimized */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  /* Keep fixed but optimize layer */
+  border-radius: 50%;
+  filter: blur(80px);
+  /* Increased blur for softer background */
+  z-index: -1;
+  opacity: 0.5;
+  will-change: transform;
+  /* Promote to GPU layer */
+  transform: translateZ(0);
+}
+
+body::before {
+  width: 500px;
+  height: 500px;
+  background: #c7d2fe;
+  top: -100px;
+  left: -100px;
+}
+
+body::after {
+  width: 600px;
+  height: 600px;
+  background: #bae6fd;
+  bottom: -50px;
+  right: -100px;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Bootstrap Navbar Overrides */
+.navbar {
+  position: fixed;
+  /* Make sticky */
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  /* Responsive width */
+  max-width: var(--container-width);
+  height: 80px;
+  padding: 0 20px;
+  z-index: 1000;
+  /* Ensure on top */
+}
+
+/* Add padding to body to prevent content jumping */
+body {
+  padding-top: 100px;
+}
+
+/* Glass Utility Classes */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 50px;
+  margin-bottom: 40px !important;
+  will-change: transform;
+}
+
+/* General Glass Card */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.15));
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  /* Highlight top border */
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  /* Highlight left border */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  border-radius: 24px;
+  /* Slightly more rounded */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transform-origin: top center;
+  will-change: transform, opacity, box-shadow;
+}
+
+/* Shimmer Animation */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-25deg);
+  transition: left 0.5s;
+  pointer-events: none;
+}
+
+.glass-card:hover::after {
+  left: 150%;
+  transition: left 0.7s ease-in-out;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  /* Lift effect */
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 500;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--text-main);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary1 {
+  background: rgb(255, 255, 255);
+  border: 1px solid black;
+  color: #000000;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.367);
+}
+
+.btn-primary1:hover {
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  color: #010101;
+}
+
+.btn-primary:hover {
+  background: #000;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  z-index: 44;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(17, 24, 39, 0.3);
+  color: var(--text-main);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-color: var(--text-main);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Hero Section Styles */
+/* Interactive Text (Spelling moving separately) */
+.hero-content h1.interactive-text {
+  font-size: 3.5rem;
+  color: #000000 !important;
+  /* Force Black */
+  cursor: default;
+  opacity: 1 !important;
+  /* Override potential GSAP stuck state */
+  position: relative;
+  z-index: 10;
+
+  max-width: 420px;
+}
+
+.interactive-text span {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Bouncy spring */
+}
+
+
+
+/* Individual Letter Hover */
+.interactive-text span:hover {
+  color: var(--primary-accent);
+  transform: translateY(-10px) scale(1.2) rotate(5deg);
+  text-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.hero-content h2 {
+  font-size: 1.25rem;
+  color: var(--primary-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-content .role {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.hero-content .bio {
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+/* --- Featured Work (Job Ready Grid) --- */
+/* --- Featured Work (Overlay Style) --- */
+.project-card {
+  aspect-ratio: 1 / 1;
+  /* Square Ratio */
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: #f0f0f0;
+  /* Fallback */
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.project-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.project-card:hover .project-image-container img {
+  transform: scale(1.1);
+}
+
+.project-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.8) 100%);
+  opacity: 0.8;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-gradient-overlay {
+  opacity: 0.9;
+}
+
+/* Overlay Content Positioning */
+.project-overlay-content {
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Text Reveal Animation */
+.project-text {
+  transform: translateY(10px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+
+  /* Glassmorphism Background for Readability */
+  background: rgba(0, 0, 0, 0.4);
+  /* Dark glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  /* Space within the glass box */
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: -20px;
+  /* Counteract padding to keep position relative to container constraints if needed, or just let it sit. */
+  /* Actually, looking at the HTML structure:
+     .project-overlay-content { justify-content: space-between; p-4 } 
+     So adding padding here might push it too much. 
+     Let's just adding padding and not negative margin, but we have to be careful about total size. 
+     The text is at the bottom. 
+  */
+  margin-top: auto;
+  /* Ensure it stays at the bottom if flex container styling changes */
+  margin-bottom: 0;
+}
+
+.project-card:hover .project-text {
+  transform: translateY(0);
+}
+
+/* Glass Badge */
+.glass-badge {
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 8px 16px !important;
+  border-radius: 50px;
+}
+
+/* Icon Circle */
+.icon-circle {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+}
+
+.icon-circle i {
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .icon-circle {
+  transform: scale(1.1);
+  background-color: var(--primary-accent) !important;
+  color: #fff !important;
+}
+
+.project-card:hover .icon-circle i {
+  transform: rotate(45deg);
+}
+
+/* See More Card - Custom Layout matching Project Card */
+.see-more-card {
+  display: flex !important;
+  /* Force flex */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: white;
+  /* Clean white or use a subtle gradient */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 40px !important;
+}
+
+.see-more-card:hover {
+  background: #fff;
+  /* Keep white on hover or slight shift */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+.see-more-card h3 {
+  color: var(--text-main);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Profile & Floating Cards */
+.profile-container {
+  width: 350px;
+  height: 450px;
+  border-radius: 120px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  /* Thinner, clearer border */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.profile-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.float-card {
+  position: absolute;
+  /* Keep as absolute */
+  z-index: 3;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.card-1 {
+  top: 50px;
+  right: 0px;
+}
+
+.card-2 {
+  bottom: 80px;
+  left: -20px;
+}
+
+@media (max-width: 991px) {
+  .profile-container {
+    width: 300px;
+    height: 400px;
+    margin-bottom: 30px;
+  }
+
+  .card-1 {
+    top: 20px;
+    right: -10px;
+  }
+
+  .card-2 {
+    bottom: 100px;
+    left: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1.interactive-text {
+    font-size: 2.5rem;
+    /* Smaller font on mobile */
+  }
+
+  .float-card {
+    display: none;
+    /* Hide floating cards on mobile to prevent overflow */
+  }
+
+  .profile-container {
+    width: 200px;
+    /* Smaller on mobile */
+    height: 280px;
+  }
+
+  .menu-toggle {
+    margin-left: 15px;
+    /* Add spacing */
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  /* More opaque */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-accent);
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Brand Logo - Premium Typography */
+.brand-logo {
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  /* Fallback to sans for modern clean look, or import Serif if strictly needed */
+  /* Actually layout requested 'Class Design', let's use a Pseudo-Serif approach via weight/spacing or stick to clean modern sans */
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--text-main);
+  letter-spacing: -1.5px;
+  /* Tight tracking for impact */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brand-text {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-dot {
+  color: var(--primary-accent);
+  font-size: 2.5rem;
+  /* Larger dot */
+  line-height: 0;
+  margin-left: 2px;
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+}
+
+.brand-logo:hover .brand-dot {
+  transform: scale(1.5) rotate(360deg);
+  /* Playful interaction */
+  color: #1d4ed8;
+  /* Darker Blue */
+}
+
+
+
+/* Nav Links */
+.nav-links {
+  display: flex !important;
+  /* Force flex */
+  flex-direction: row;
+  /* Force horizontal */
+  gap: 32px;
+  margin: 0;
+  /* consistent resetting */
+  align-items: center;
+  /* Vertical center */
+  list-style: none;
+  /* Ensure no bullets */
+}
+
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  text-decoration: none;
+  /* Ensure no underline */
+}
+
+.nav-links a.active {
+  color: var(--primary-accent);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--text-main);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --- SECTIONS --- */
+
+/* Global Section Padding */
+.section-padding {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+}
+
+/* Marquee */
+.marquee-section {
+  background: rgba(255, 255, 255, 0.05);
+  /* Lighter */
+  backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.marquee-content {
+  display: flex;
+  gap: 40px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  white-space: nowrap;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Services */
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.section-header p {
+  font-size: 1.1rem;
+}
+
+.service-card {
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+  border-radius: 20px;
+  margin: 0 auto 24px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--primary-accent);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Work Cards - GRID Layout (Updated) */
+/* .work-section-wrapper handled by Bootstrap Row */
+
+/* Work Section - Zig Zag Layout */
+/* Premium Gallery Cards - Modern Art Style */
+.gallery-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: #f0f0f0;
+  /* Fallback */
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.gallery-card:hover .gallery-image img {
+  transform: scale(1.1);
+}
+
+/* Glass Overlay - Slides up on hover */
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 100%);
+  /* Initial state: text visible on top of image, OR subtle overlay */
+  /* Let's go for specific glass pane at bottom */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  transform: translateY(100%);
+  /* Hidden initially or partially? Let's hide it */
+  transform: translateY(0);
+  /* Actually, let's keep it visible but interactive */
+  /* Re-reading plan: "Glass overlay slides up or fades in" */
+  /* Let's try: Overlay is always there but compact, expands on hover? */
+  /* Better: High-end look -> Overlay slides up from bottom */
+
+  /* Resetting for Slide Up Effect */
+  background: rgba(255, 255, 255, 0.75);
+  /* Light premium glass */
+  transform: translateY(150px);
+  /* Show only title initially? */
+  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.gallery-card:hover .gallery-overlay {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.gallery-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gallery-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease 0.1s;
+}
+
+.gallery-card:hover .gallery-tags {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-tags span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--primary-accent);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.gallery-content h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.gallery-content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.gallery-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.2s;
+}
+
+.gallery-card:hover .gallery-link-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-link-btn i {
+  transition: transform 0.3s ease;
+}
+
+.gallery-link-btn:hover i {
+  transform: translateX(4px) rotate(-45deg);
+  color: var(--primary-accent);
+}
+
+
+
+/* FAQ */
+.glass-accordion-item {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-accordion-item .accordion-button {
+  background: transparent;
+  box-shadow: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-main);
+  padding: 1.5rem 1rem;
+}
+
+.glass-accordion-item .accordion-button:not(.collapsed) {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
+  color: var(--primary-accent);
+  border-radius: 10px;
+}
+
+.glass-accordion-item .accordion-body {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Creative Big Footer */
+.big-footer {
+  background: #f8fafc;
+  /* Very light grey */
+  color: var(--text-main);
+  z-index: 1;
+}
+
+.footer-glow {
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 600px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.footer-cta-text {
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+}
+
+/* Rolling Text Animation */
+.rolling-text-container {
+  display: inline-block;
+  position: relative;
+  height: 1em;
+  /* Matches font size */
+  overflow: hidden;
+  vertical-align: bottom;
+  /* Aligns with "LET'S WORK" */
+  line-height: 1;
+}
+
+.rolling-text {
+  display: block;
+  /* Remove block transition, move to letter */
+}
+
+.rolling-text .letter {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--index) * 0.03s);
+  min-width: 0.05em;
+  /* Prevent collapse on spaces if not handled manually */
+}
+
+.rolling-text.original .letter {
+  /* Initial State: Visible */
+  transform: translateY(0);
+}
+
+.rolling-text.clone {
+  /* Initial State: Hidden below */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.rolling-text.clone .letter {
+  transform: translateY(100%);
+}
+
+.rolling-text.clone {
+  color: var(--text-main);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px var(--text-main);
+  color: transparent;
+}
+
+
+/* Trigger Hover on Parent */
+.footer-cta-text:hover .rolling-text.original .letter {
+  transform: translateY(-100%);
+  /* Move up out of view */
+}
+
+.footer-cta-text:hover .rolling-text.clone .letter {
+  transform: translateY(0);
+  /* Move up into view */
+}
+
+.footer-links-group li {
+  margin-bottom: 12px;
+}
+
+.footer-links-group a {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0px;
+}
+
+/* Hover Dot Reveal Effect */
+.footer-links-group a::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-accent);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-right: 0px;
+}
+
+.footer-links-group a:hover {
+  color: var(--text-main);
+  padding-left: 0;
+  gap: 10px;
+  /* Space out for dot */
+}
+
+.footer-links-group a:hover::before {
+  opacity: 1;
+  transform: scale(1);
+  margin-right: 0;
+}
+
+/* Social Icons Animation */
+.footer-socials {
+  flex-wrap: wrap;
+}
+
+.social-icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text-main);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 0;
+}
+
+.social-icon-btn i {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+}
+
+.social-icon-btn:hover::before {
+  transform: scale(1);
+}
+
+.social-icon-btn:hover i {
+  color: #fff;
+}
+
+.letter-spacing-2 {
+  letter-spacing: 2px;
+}
+
+.leading-tight {
+  line-height: 0.95;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .footer-cta-text {
+    font-size: 3.5rem;
+  }
+}
+
+/* Mobile Menu Active State */
+.nav-links.mobile-active {
+  display: flex !important;
+  position: fixed;
+  top: 90px;
+  left: 20px;
+  right: 20px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  /* Glassmorphism */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  z-index: 999;
+  animation: slideInDown 0.3s ease-out forwards;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links.mobile-active li {
+  width: 100%;
+  text-align: center;
+}
+
+.nav-links.mobile-active a {
+  font-size: 1.2rem;
+  display: block;
+  padding: 10px;
+}
+
+/* Process Section - Horizontal Grid */
+.process-horizontal-card {
+  border-top: 4px solid var(--primary-accent) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-horizontal-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.step-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.05);
+  line-height: 1;
+}
+
+.process-horizontal-card:hover .step-badge {
+  color: rgba(37, 99, 235, 0.1);
+}
+
+.icon-wrapper {
+  font-size: 2.5rem;
+  color: var(--primary-accent);
+}
+
+
+
+.magnetic-btn {
+  display: inline-block;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Stats Section - Cinematics (Light Theme) */
+.stats-section {
+  background: transparent;
+  color: var(--text-main);
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.green-glow-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+  /* Blue glow */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stat-item {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transform: translateY(-5px);
+}
+
+.stat-number-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 8px;
+}
+
+.stat-number {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  /* Blue Accent */
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+}
+
+.stat-number-wrapper .plus {
+  font-size: 3rem;
+  color: var(--primary-accent);
+  font-weight: 600;
+  margin-left: 5px;
+  transform: translateY(-8px);
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 3.5rem;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .nav-links {
+    display: none !important;
+  }
+}
+
+/* Cursor for hover accordion */
+.glass-accordion-item {
+  cursor: pointer;
+}
+
+/* --- Skills Page --- */
+.page-header {
+  text-align: center;
+  padding-top: calc(80px + 60px);
+  padding-bottom: 40px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.skill-category-card {
+  padding: 30px;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  /* Subtle lift */
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-accent);
+  font-size: 1.2rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--secondary-accent);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  background: var(--primary-accent);
+  color: #fff;
+}
+
+/* --- Stacked Cards Section --- */
+.stacked-cards-section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.stacked-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 60vh;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.stack-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transform-origin: top center;
+  will-change: transform, opacity, box-shadow;
+}
+
+/* Card Themes */
+.card-blue {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+}
+
+.card-purple {
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+}
+
+.card-green {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+}
+
+.stack-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.stack-text {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stack-text h3 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.stack-text p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.stack-image {
+  flex: 1.2;
+  height: 100%;
+  padding: 20px;
+}
+
+.stack-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  /* Fixed closing parenthesis */
+}
+
+@media (max-width: 991px) {
+  .stacked-wrapper {
+    height: auto;
+    min-height: 70vh;
+  }
+
+  .stack-card {
+    position: relative;
+    margin-bottom: 40px;
+    flex-direction: column;
+  }
+
+  .stack-content {
+    flex-direction: column-reverse;
+    /* Text on bottom, image on top */
+  }
+
+  .stack-text {
+    padding: 30px;
+  }
+
+  .stack-image {
+    border-radius: 0;
+  }
+}
+
+/* --- New Work Section (Redesign) --- */
+
+/* Massive Outline Header */
+.work-outline-header {
+  font-size: 13vw;
+  /* Responsive size */
+  font-weight: 900;
+  color: #f1f5f9;
+  /* Slate-100: Visible solid color */
+  -webkit-text-stroke: 1px rgba(15, 23, 42, 0.1);
+  /* Subtle outline */
+  text-transform: uppercase;
+  line-height: 0.8;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  font-family: 'Outfit', sans-serif;
+  opacity: 1;
+  /* Remove opacity to let stroke color control generic visibility */
+}
+
+/* Light Theme Outline */
+@media (prefers-color-scheme: dark) {
+  .work-outline-header {
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* New Work Card */
+.work-card {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  /* Standard rectangle */
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  background: #1a1a1a;
+  /* Dark fallback */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  isolation: isolate;
+  /* Create stacking context */
+}
+
+/* ... Hover ... */
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Header (Floating Title & Icon on Top) */
+.work-card-header {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 10;
+  /* High z-index */
+}
+
+.work-card-header h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  /* White text */
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  /* Legibility */
+}
+
+.work-card-header p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  /* White muted */
+  margin-top: 5px;
+  font-weight: 500;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.work-icon {
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.work-card:hover .work-icon {
+  transform: rotate(45deg);
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Image Wrapper (Full Fill) */
+.work-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Gradient Overlay for Text Readability - Dark Mode */
+.work-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  /* Slight deeper gradient for text area */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.work-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.work-card:hover .work-image {
+  transform: scale(1.05);
+  /* Subtle zoom */
+}
+
+@media (max-width: 768px) {
+  .work-outline-header {
+    font-size: 4rem;
+  }
+
+  .work-card {
+    aspect-ratio: 1/1;
+    /* Square on mobile */
+  }
+}

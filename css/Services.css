@@ -1,0 +1,138 @@
+/* Services & Process Styles */
+
+.services-header {
+    margin-bottom: 2rem;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.services-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.services-header p {
+    font-size: 1.1rem;
+}
+
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    /* Replaces gy-4 */
+}
+
+/* Service Card (Glass Style Included) */
+.service-card {
+    padding: 40px 30px;
+    text-align: center;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); /* Dark theme */
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Dark shadow */
+    border-radius: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    will-change: transform, opacity, box-shadow;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Lift with dark shadow */
+    background: rgba(255, 255, 255, 0.08); /* slight brightness increase on hover */
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); /* Dark theme */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin: 0 auto 24px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--text-main); /* White text */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Process Grid */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Process Card (Horizontal Card Style) */
+.process-card {
+    padding: 1.5rem !important;
+    height: 100%;
+    position: relative;
+    border-top: 4px solid var(--primary-accent) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Glass Styles */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)); /* Dark Theme */
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Dark shadow */
+    border-radius: 24px;
+}
+
+.process-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    background: rgba(255, 255, 255, 0.08); /* Highlight background */
+}
+
+.step-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.05); /* very light transparent white */
+    line-height: 1;
+}
+
+.process-card:hover .step-badge {
+    color: rgba(255, 255, 255, 0.15);
+}
+
+.icon-wrapper {
+    font-size: 2.5rem;
+    color: var(--text-main);
+}
+
+@media (max-width: 991px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+}

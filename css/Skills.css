@@ -1,0 +1,183 @@
+/* --- Skills Page --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-bottom: 80px;
+}
+
+.skill-category-card {
+    padding: 30px;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Subtle lift */
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.category-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05); /* Dark theme adjustment */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    font-size: 1.2rem;
+}
+
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.05); /* Dark theme adjustment */
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: var(--primary-accent);
+    color: #fff;
+}
+
+/* --- Stacked Cards Section --- */
+.stacked-cards-section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.stacked-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 60vh;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.stack-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transform-origin: top center;
+    will-change: transform, opacity, box-shadow;
+}
+
+/* Card Themes - Dark UI Adjustments */
+.card-blue {
+    background: linear-gradient(135deg, #1e3a8a, #172554);
+}
+
+.card-purple {
+    background: linear-gradient(135deg, #4c1d95, #2e1065);
+}
+
+.card-green {
+    background: linear-gradient(135deg, #14532d, #052e16);
+}
+
+.stack-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.stack-text {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stack-text h3 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+.stack-text p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+.stack-image {
+    flex: 1.2;
+    height: 100%;
+    padding: 20px;
+}
+
+.stack-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Fixed closing parenthesis */
+}
+
+@media (max-width: 991px) {
+    .stacked-wrapper {
+        height: auto;
+        min-height: 70vh;
+    }
+
+    .stack-card {
+        position: relative;
+        margin-bottom: 40px;
+        flex-direction: column;
+    }
+
+    .stack-content {
+        flex-direction: column-reverse;
+        /* Text on bottom, image on top */
+    }
+
+    .stack-text {
+        padding: 30px;
+    }
+
+    .stack-image {
+        border-radius: 0;
+    }
+}

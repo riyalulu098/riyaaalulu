@@ -1,0 +1,57 @@
+/* Buttons */
+.btn {
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 500;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--text-main);
+    color: #111111;
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary1 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-main);
+    backdrop-filter: blur(10px);
+}
+
+.btn-primary1:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+    color: #000;
+    z-index: 44;
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(17, 24, 39, 0.3);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-color: var(--text-main);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.magnetic-btn {
+    display: inline-block;
+}

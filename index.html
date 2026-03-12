@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' https: 'unsafe-inline';">
+
+    <!-- SEO Meta Tags -->
+    <title>Riya P K | UI/UX Designer</title>
+    <meta name="description"
+        content="Portfolio of Riya P K, a UI/UX Designer. Specializing in building mobile and web interfaces, modern interfaces, and seamless user experiences." />
+    <meta name="keywords" content="UI/UX Designer, Web Designer, Figma, Prototyping, Frontend Engineering, Riya P K" />
+    <meta name="author" content="Riya P K" />
+    <link rel="canonical" href="https://riyapk.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://riyapk.com/" />
+    <meta property="og:title" content="Riya P K | UI/UX Designer" />
+    <meta property="og:description"
+        content="Explore the portfolio of Riya P K. Expert in Figma, Prototyping, and UI/UX Design." />
+    <meta property="og:image" content="https://riyapk.com/assets/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://riyapk.com/" />
+    <meta property="twitter:title" content="Riya P K | UI/UX Designer" />
+    <meta property="twitter:description"
+        content="Explore the portfolio of Riya P K. Expert in Figma, Prototyping, and UI/UX Design." />
+    <meta property="twitter:image" content="https://riyapk.com/assets/og-image.jpg" />
+
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Preloader.css">
+    <link rel="stylesheet" href="css/Navbar.css">
+    <link rel="stylesheet" href="css/Hero.css">
+    <link rel="stylesheet" href="css/Stats.css">
+    <link rel="stylesheet" href="css/Services.css">
+    <link rel="stylesheet" href="css/FeaturedWork.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <link rel="stylesheet" href="css/Buttons.css">
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="intro-grid-lines">
+            <div class="grid-line horiz"></div>
+            <div class="grid-line vert"></div>
+        </div>
+        <div class="intro-shapes">
+            <div class="intro-shape rect" style="transform: translateX(-60px) scale(0)"></div>
+            <div class="intro-shape circle" style="transform: translateX(60px) scale(0)"></div>
+            <div class="intro-shape square" style="transform: translateY(-40px) scale(0)"></div>
+        </div>
+        <div class="intro-text-container">
+            <div class="intro-logo-wrapper">
+                <h1 class="intro-text">
+                    <span class="intro-char">R</span>
+                    <span class="intro-char">i</span>
+                    <span class="intro-char">y</span>
+                    <span class="intro-char">a</span>
+                    <span class="intro-char">.</span>
+                    <span class="intro-char">P</span>
+                    <span class="intro-char">K</span>
+                    <div class="intro-dot"></div>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass-panel">
+        <div class="navbar-container">
+            <a href="index.html" class="brand-logo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                <span class="brand-text-wrapper">
+                    <span class="brand-text">Riya</span><span class="brand-dot">.</span>
+                </span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active" style="color: var(--primary-accent)">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="mobile-only-btn">
+                    <a href="mailto:riyalulu098@gmail.com" class="btn btn-primary w-100">Let's Talk</a>
+                </li>
+            </ul>
+
+            <div class="navbar-actions">
+                <a href="mailto:riyalulu098@gmail.com" class="btn btn-primary nav-cta-btn magnetic-btn">
+                    Let's Talk
+                </a>
+                <div class="menu-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Layout -->
+    <main style="min-height: 100vh;">
+
+        <!-- Hero -->
+        <section class="hero-section section-padding">
+            <div class="hero-container">
+                <div class="hero-grid">
+                    <div class="hero-text-section">
+                        <span class="greeting">I'm</span>
+                        <h1 class="interactive-text">
+                            <span>R</span><span>i</span><span>y</span><span>a</span>
+                            &nbsp;
+                            <span>P</span><span>K</span>
+                        </h1>
+                        <h2 class="role">UI / UX Designer</h2>
+                        <p class="bio">
+                            User-focused UI/UX Designer with experience building mobile and web interfaces that balance
+                            visual appeal with seamless usability. Skilled in <strong>Figma, prototyping and creating
+                                responsive layouts</strong>.
+                        </p>
+
+                        <div class="cta-group">
+                            <a href="assets/riya_pk_cv.pdf" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-primary magnetic-btn" style="margin-right: 10px;">
+                                Download CV
+                            </a>
+                            <a href="contact.html" class="btn btn-primary1 magnetic-btn">
+                                Contact Me
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual-section">
+                        <div class="profile-container">
+                            <img src="assets/riya-profile.png" alt="Riya P K - UI/UX Designer" loading="eager"
+                                width="350" height="450" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <section class="marquee-section overflow-hidden py-5">
+            <div class="marquee-wrapper">
+                <div class="marquee-content">
+                    <span>UI/UX Design</span> • <span>Web Development</span> • <span>Prototyping</span> •
+                    <span>Wireframing</span> • <span>React.js</span> • <span>Figma</span> •
+                    <span>UI/UX Design</span> • <span>Web Development</span> • <span>Prototyping</span> •
+                    <span>Wireframing</span> • <span>React.js</span> • <span>Figma</span> •
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-section section-padding position-relative overflow-hidden">
+            <div class="green-glow-circle"></div>
+            <div class="container position-relative z-2">
+                <div class="stats-grid">
+                    <div class="stat-column">
+                        <div class="stat-item">
+                            <div class="stat-number-wrapper">
+                                <span class="stat-number" data-target="15">0</span><span class="plus">+</span>
+                            </div>
+                            <p class="stat-label">Global Brands</p>
+                        </div>
+                    </div>
+                    <div class="stat-column">
+                        <div class="stat-item">
+                            <div class="stat-number-wrapper">
+                                <span class="stat-number" data-target="8">0</span><span class="plus">+</span>
+                            </div>
+                            <p class="stat-label">Months Experience</p>
+                        </div>
+                    </div>
+                    <div class="stat-column">
+                        <div class="stat-item">
+                            <div class="stat-number-wrapper">
+                                <span class="stat-number" data-target="18">0</span><span class="plus">+</span>
+                            </div>
+                            <p class="stat-label">Projects Delivered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="services-header center-text">
+                    <h2>What I Do</h2>
+                    <p>Translating complex problems into simple, beautiful, and intuitive designs.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-column">
+                        <div class="service-card">
+                            <div class="service-icon"><i class="ri-layout-masonry-line"></i></div>
+                            <h3>UI Design</h3>
+                            <p>Creating visually stunning interfaces using Figma & Adobe XD with a focus on modern
+                                aesthetics.</p>
+                        </div>
+                    </div>
+                    <div class="service-column">
+                        <div class="service-card">
+                            <div class="service-icon"><i class="ri-user-search-line"></i></div>
+                            <h3>UX Research</h3>
+                            <p>Understanding user needs through personas and journey maps to ensure meaningful
+                                experiences.</p>
+                        </div>
+                    </div>
+                    <div class="service-column">
+                        <div class="service-card">
+                            <div class="service-icon"><i class="ri-code-s-slash-line"></i></div>
+                            <h3>Frontend Dev</h3>
+                            <p>Bridging the gap between design and code with clean HTML, CSS, and vanilla Javascript
+                                implementation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="services-header center-text mb-5">
+                    <h2>My Process</h2>
+                    <p>A streamlined workflow ensuring quality at every step.</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-column">
+                        <div class="process-card">
+                            <div class="step-badge">01</div>
+                            <div class="mb-4 mt-3 icon-wrapper">
+                                <i class="ri-search-eye-line"></i>
+                            </div>
+                            <h4>Discovery</h4>
+                            <p class="small">Deep dive into user needs, competitor analysis, and problem definition.</p>
+                        </div>
+                    </div>
+                    <div class="process-column">
+                        <div class="process-card">
+                            <div class="step-badge">02</div>
+                            <div class="mb-4 mt-3 icon-wrapper">
+                                <i class="ri-mind-map"></i>
+                            </div>
+                            <h4>Strategy</h4>
+                            <p class="small">Blueprinting the architecture, wireframing flows, and planning the UX.</p>
+                        </div>
+                    </div>
+                    <div class="process-column">
+                        <div class="process-card">
+                            <div class="step-badge">03</div>
+                            <div class="mb-4 mt-3 icon-wrapper">
+                                <i class="ri-pen-nib-line"></i>
+                            </div>
+                            <h4>Design</h4>
+                            <p class="small">Crafting pixel-perfect visuals, interactive prototypes, and design systems.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="process-column">
+                        <div class="process-card">
+                            <div class="step-badge">04</div>
+                            <div class="mb-4 mt-3 icon-wrapper">
+                                <i class="ri-code-box-line"></i>
+                            </div>
+                            <h4>Develop</h4>
+                            <p class="small">Translating designs into clean, responsive, and accessible code.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Work -->
+        <section id="work" class="section-padding">
+            <div class="container">
+                <div class="work-header">
+                    <h2 class="work-title">Selected Works</h2>
+                    <p class="work-subtitle">A selection of projects that demonstrate my ability to solve complex
+                        problems.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-column">
+                        <a href="#" class="work-card">
+                            <div class="work-card-header">
+                                <div>
+                                    <h3>Zylo fashion style</h3>
+                                    <p>Responsive website UI for a customized bridal dress brand</p>
+                                </div>
+                                <div class="work-icon">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                </div>
+                            </div>
+                            <div class="work-image-wrapper">
+                                <img src="assets/zylo_mockup.png" alt="Zylo fashion style" class="work-image"
+                                    loading="lazy" decoding="async" width="800" height="600" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-column">
+                        <a href="#" class="work-card">
+                            <div class="work-card-header">
+                                <div>
+                                    <h3>Fresh Bite</h3>
+                                    <p>Food delivery application</p>
+                                </div>
+                                <div class="work-icon">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                </div>
+                            </div>
+                            <div class="work-image-wrapper">
+                                <img src="assets/pizza%20moc.png" alt="Fresh Bite" class="work-image" loading="lazy"
+                                    decoding="async" width="800" height="600" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-column">
+                        <a href="#" class="work-card">
+                            <div class="work-card-header">
+                                <div>
+                                    <h3>Creative Agency</h3>
+                                    <p>Agency Portfolio Website</p>
+                                </div>
+                                <div class="work-icon">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                </div>
+                            </div>
+                            <div class="work-image-wrapper">
+                                <img src="assets/creative%20agency.png" alt="Creative Agency" class="work-image"
+                                    loading="lazy" decoding="async" width="800" height="600" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-column">
+                        <a href="#" class="work-card">
+                            <div class="work-card-header">
+                                <div>
+                                    <h3>Global Reach</h3>
+                                    <p>Global Reach Platform</p>
+                                </div>
+                                <div class="work-icon">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                </div>
+                            </div>
+                            <div class="work-image-wrapper">
+                                <img src="assets/Global%20Reach.png" alt="Global Reach" class="work-image"
+                                    loading="lazy" decoding="async" width="800" height="600" />
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-header center-text">
+                            <h2 style="padding-bottom: 50px;">Frequently Asked Questions</h2>
+                        </div>
+                        <div class="accordion glass-panel p-4" id="faqAccordion">
+                            <!-- Item 1 -->
+                            <div class="accordion-item glass-accordion-item mb-3">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button"
+                                        style="background: transparent; box-shadow: none;" aria-expanded="false">
+                                        What tools do you use for design?
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse"
+                                    style="height: 0; opacity: 0; overflow: hidden; padding-top: 0;">
+                                    <div class="accordion-body">
+                                        I primarily use Figma for interface design and prototyping. For motion, I use
+                                        ProtoPie or After Effects, and for development, I use VS Code.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="accordion-item glass-accordion-item mb-3">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button"
+                                        style="background: transparent; box-shadow: none;" aria-expanded="false">
+                                        Do you do coding as well?
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse"
+                                    style="height: 0; opacity: 0; overflow: hidden; padding-top: 0;">
+                                    <div class="accordion-body">
+                                        Yes! I am a hybrid designer-developer. I write clean HTML, CSS, and Vanilla
+                                        JavaScript code, ensuring that the final product looks exactly like the design.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="accordion-item glass-accordion-item mb-3">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button"
+                                        style="background: transparent; box-shadow: none;" aria-expanded="false">
+                                        Are you available for freelance projects?
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse"
+                                    style="height: 0; opacity: 0; overflow: hidden; padding-top: 0;">
+                                    <div class="accordion-body">
+                                        Currently, I am open to freelance opportunities and full-time roles. Feel free
+                                        to contact me to discuss your project.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="big-footer section-padding pb-0 position-relative overflow-hidden">
+        <div class="container position-relative z-2">
+            <div class="footer-cta-wrapper">
+                <div class="footer-full-width">
+                    <h2 class="footer-cta-text">
+                        <a href="contact.html" class="cta-link">
+                            LET'S WORK <br />
+                            <span class="rolling-text-container">
+                                <span class="rolling-text original text-stroke">TOGETHER</span>
+                                <span class="rolling-text clone">TOGETHER</span>
+                            </span>
+                        </a>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="footer-content-grid">
+                <div class="footer-brand-info">
+                    <a href="index.html" class="brand-name footer-brand-logo"
+                        style="text-decoration: none; display: inline-flex; position: relative;"
+                        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                        <span class="brand-text-wrapper">Riya.</span>
+                    </a>
+                    <p class="brand-location">Based in Malappuram, Kerala.</p>
+                </div>
+                <a href="mailto:riyalulu098@gmail.com" class="footer-email-btn magnetic-btn">
+                    <span>riyalulu098@gmail.com</span>
+                    <i class="ri-arrow-right-up-line"></i>
+                </a>
+            </div>
+
+            <div class="footer-social-section">
+                <h5 class="connect-heading">Connect</h5>
+                <div class="footer-socials">
+                    <a href="https://linkedin.com/" class="social-icon-btn"><i class="ri-linkedin-fill"></i></a>
+                    <a href="https://wa.me/916235806079" class="social-icon-btn"><i class="ri-whatsapp-line"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 Riya P K. All rights reserved.</p>
+            <p class="footer-credit">Designed & Coded by Riya</p>
+        </div>
+
+        <div class="footer-glow"></div>
+    </footer>
+
+    <!-- GSAP / Lenis Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Custom Main JS -->
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

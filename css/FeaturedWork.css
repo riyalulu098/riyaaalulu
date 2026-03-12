@@ -1,0 +1,279 @@
+/* Header Styles */
+.work-header {
+    margin-bottom: 3rem;
+}
+
+.work-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.work-subtitle {
+    color: var(--text-muted); /* Zinc 400 */
+    font-size: 1.25rem;
+    font-weight: 400; /* Increased weight slightly for legibility */
+}
+
+/* Projects Grid - Replaces .row .g-4 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Project Column - Replaces .col-md-6 */
+.project-column {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Featured Work (Overlay Style) --- */
+.project-card {
+    aspect-ratio: 1 / 1;
+    border-radius: 20px; /* Stronger but clean border radius */
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.4s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8); /* Deep shadow */
+    background: #09090b; /* Zinc 950 base */
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Very faint border */
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.project-image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.project-card:hover .project-image-container img {
+    transform: scale(1.1);
+}
+
+.project-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Darker, deeper overlay for text legibility */
+    background: linear-gradient(to bottom, rgba(9, 9, 11, 0) 30%, rgba(9, 9, 11, 0.6) 60%, rgba(9, 9, 11, 0.95) 100%);
+    opacity: 0.9;
+    transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-gradient-overlay {
+    opacity: 0.9;
+}
+
+/* Overlay Content Positioning */
+.project-overlay-content {
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Text Reveal Animation */
+.project-text {
+    transform: translateY(10px);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+
+    /* Glassmorphism Background for Readability - Dark Mode Adjust */
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin: -20px;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+.project-card:hover .project-text {
+    transform: translateY(0);
+}
+
+/* Glass Badge */
+.glass-badge {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 16px !important;
+    border-radius: 50px;
+}
+
+/* Icon Circle */
+.icon-circle {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+}
+
+.icon-circle i {
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .icon-circle {
+    transform: scale(1.1);
+    background-color: var(--text-main) !important; /* White icon circle hover */
+    color: #000 !important; /* Black icon inside */
+}
+
+.project-card:hover .icon-circle i {
+    transform: rotate(45deg);
+}
+
+/* See More Card - Custom Layout matching Project Card */
+.see-more-card {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05); /* Dark mode adjustment */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px !important;
+}
+
+.see-more-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.see-more-card h3 {
+    color: var(--text-main);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* New Work Card */
+.work-card {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    background: #09090b; /* Zinc 950 */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    isolation: isolate;
+    /* Create stacking context */
+}
+
+/* ... Hover ... */
+.work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Header (Floating Title & Icon on Top) */
+.work-card-header {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    right: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 10;
+    /* High z-index */
+}
+
+.work-card-header h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    /* White text */
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    /* Legibility */
+}
+
+.work-card-header p {
+    font-size: 1rem;
+    color: var(--text-muted); /* Silver */
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.work-icon {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.work-card:hover .work-icon {
+    transform: rotate(45deg);
+    background: var(--text-main); /* White outline hover */
+    color: #000000;
+}
+
+/* Image Wrapper (Full Fill) */
+.work-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Gradient Overlay for Text Readability - Dark Mode */
+.work-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(to bottom, rgba(9, 9, 11, 0.9), rgba(9, 9, 11, 0)); /* Deep Zinc Gradient */
+    z-index: 2;
+    pointer-events: none;
+}
+
+.work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.work-card:hover .work-image {
+    transform: scale(1.05);
+}
