@@ -1,7 +1,6 @@
 .page-header {
     text-align: center;
-    padding-top: calc(80px + 60px);
-    /* fallback for var */
+    padding-top: 0px;
     padding-bottom: 40px;
 }
 
